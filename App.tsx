@@ -1,22 +1,23 @@
 import { StyleSheet, Text, View } from 'react-native';
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
-import ShopCart from './src/screens/public/ShopCart';
+import Products from './src/screens/public/Products';
 // import { SafeAreaView } from "react-native-safe-area-context";
 import { SafeAreaView } from 'react-native';
 import { NativeBaseProvider } from 'native-base';
 import { PaperProvider } from 'react-native-paper';
 import { CartContextProvider } from './src/contexts/CartContext';
+import Cart from './src/screens/public/Cart';
 
 const Stack = createNativeStackNavigator();
 
 const RoutesTarget: React.FC = () => {
   return (
     <NavigationContainer>
-      <Stack.Navigator initialRouteName='shopcart'>
+      <Stack.Navigator initialRouteName='products'>
         <Stack.Screen
-          name='shopcart'
-          component={ShopCart}
+          name='products'
+          component={Products}
           options={{
             header: (props) => {
               return (
@@ -28,6 +29,10 @@ const RoutesTarget: React.FC = () => {
               )
             }
           }} />
+        <Stack.Screen
+          name='cart'
+          component={Cart}
+        />
       </Stack.Navigator>
     </NavigationContainer>
   )

@@ -4,9 +4,13 @@ import { categories as C } from "../../../categories";
 import { Badge, Button } from "react-native-paper";
 import { CartContext } from "../../../contexts/CartContext";
 import Product from "./product";
+import {
+    useNavigation,
+} from '@react-navigation/native';
 
-export default function ShopCart() {
+export default function Products() {
     const { cart } = React.useContext(CartContext);
+    const navigation = useNavigation();
 
     return (
         <View style={{ display: "flex", marginLeft: 2, marginRight: 2, height: "100%" }}>
@@ -49,7 +53,7 @@ export default function ShopCart() {
                     marginTop: 4,
                     marginBottom: 4,
                     borderRadius: 100,
-                }}>
+                }} onPress={() => navigation.navigate('cart' as never)}>
                     <Text>Cart</Text>
                 </TouchableOpacity>
             </View>
